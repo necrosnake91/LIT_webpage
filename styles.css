@@ -25,3 +25,31 @@
     overflow: hidden;
 }
 
+/* 1. Contenedor Padre Flexbox */
+.welcome-container {
+    display: flex;
+    flex-direction: row; /* Forzar orientación horizontal */
+    align-items: center;  /* Centrar verticalmente imagen y texto */
+    background-color: #363946;
+    color: #F7F7FF;
+    border-radius: 8px;
+    padding: 150px;
+    box-sizing: border-box;
+}
+/* 4. Columna Derecha (Texto) - Fija al 40% */
+.main {
+    flex: 0 0 40%;      /* Ocupa exactamente el 70% */
+    max-width: 40%;
+    box-sizing: border-box;
+}
+
+.main h2 {
+    margin-top: 0;
+    color: #F7F7FF;
+}
+
+.main p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
