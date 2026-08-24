@@ -1,0 +1,17 @@
+/* tipo de letra */
+  /* Style the body */
+  body {
+    font-family: 'Josefin Sans';
+    margin: 0;
+  }
+
+/* Contenedor principal del contacto superior */
+.contactheader {
+    display: flex;
+    align-items: center;
+    background-color: #113176;
+    color: white;
+    padding: 10px 20px;
+    overflow: hidden;
+}
+
