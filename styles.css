@@ -15,3 +15,13 @@
     overflow: hidden;
 }
 
+/* Contenedor principal de la barra de navegación */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    color: #113176;
+    padding: 50px 20px;
+    overflow: hidden;
+}
+
