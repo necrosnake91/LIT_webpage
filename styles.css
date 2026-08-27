@@ -32,13 +32,12 @@
     align-items: center;  /* Centrar verticalmente imagen y texto */
     background-color: #363946;
     color: #F7F7FF;
-    border-radius: 8px;
-    padding: 150px;
+    padding: 200px;
     box-sizing: border-box;
 }
 /* 4. Columna Derecha (Texto) - Fija al 40% */
 .main {
-    flex: 0 0 40%;      /* Ocupa exactamente el 70% */
+    flex: 0 0 40%;      /* Ocupa exactamente el 40% */
     max-width: 40%;
     box-sizing: border-box;
 }
@@ -53,3 +52,117 @@
     line-height: 1.6;
 }
 
+/* 5. Contendor para certificados */
+.certificates {
+    display: flex;
+    flex-direction: row; /* Forzar orientación horizontal */
+    align-items: center;  /* Centrar verticalmente imagen y texto */
+    background-color: #f7f7f7;
+    color: #363946;
+    padding: 80px;
+    box-sizing: border-box;
+}
+
+/* 6. Contenedor para servicios ofrecidos */
+.services{
+    display: flex;
+    flex-direction: row; /* Forzar orientación horizontal */
+    align-items: center;  /* Centrar verticalmente imagen y texto */
+    background-color: #113176;
+    color: #f7f7f7;
+    padding: 150px;
+    box-sizing: border-box;
+}
+
+/* 7. Contenedor para la infraestructura */
+.facility{
+    display: flex;
+    flex-direction: row; /* Forzar orientación horizontal */
+    justify-content: flex-end;
+    align-items: center;  /* Centrar verticalmente imagen y texto */
+    background-color: #f7f7f7;
+    color: #363946;
+    padding: 150px;
+    box-sizing: border-box;
+}
+
+.facility .side {
+    flex: 0 0 30%;
+    max-width: 30%;
+    box-sizing: border-box;
+    text-align: center;
+    padding-right: 20px;
+}
+
+/* 8. Contenedor para la capacidad analitica */
+.analitics{
+    display: flex;
+    flex-direction: row; /* Forzar orientación horizontal */
+    align-items: center;  /* Centrar verticalmente imagen y texto */
+    background-color: #113176;
+    color: #f7f7f7;
+    padding: 150px;
+    box-sizing: border-box;
+}
+
+.analitics .main{
+    flex: 0 0 60%;
+    max-width: 60%;
+    box-sizing: border-box;
+    text-align: center
+}
+
+.analitics .side{
+    flex: 0 0 40%;
+    max-width: 40%;
+    box-sizing: border-box;
+    text-align: center;
+    padding-right: 20px;
+}
+
+/* 9. Contenedor para las publicaciones */
+.publications {
+    display: flex;
+    flex-direction: row; /* Forzar orientación horizontal */
+    align-items: center;  /* Centrar verticalmente imagen y texto */
+    background-color: #f7f7f7;
+    color: #113176;
+    padding: 150px;
+    box-sizing: border-box;
+}
+
+.publications .main {
+    flex: 0 0 60%;
+    max-width: 60%;
+    box-sizing: border-box;
+    text-align: center
+}
+
+.publications .side {
+    flex: 0 0 40%;
+    max-width: 40%;
+    box-sizing: border-box;
+    text-align: center;
+    padding-right: 20px;
+}
+
+/* 10. Contenedor para contacto y direccion */
+.contact {
+    display: flex;
+    flex-direction: row; /* Forzar orientación horizontal */
+    align-items: center;  /* Centrar verticalmente imagen y texto */
+    background-color: #113176;
+    color: #f7f7f7;
+    padding: 250px;
+    box-sizing: border-box;
+}
+
+/* 11. Contenedor para las redes */
+.social {
+    display: flex;
+    align-items: center;
+    background-color: #f7f8fc;
+    color: #113176;
+    padding: 10px 20px;
+    overflow: hidden;
+}
