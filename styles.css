@@ -30,11 +30,35 @@
 /* Contenedor principal de la barra de navegación */
 .navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: #f7f7f7;
     color: #113176;
-    padding: 50px 20px;
+    padding: 20px 20px;
     overflow: hidden;
+}
+
+.navbar-logo {
+    height: 80px;                   /* Ajusta el alto de la imagen a tus necesidades */
+    width: auto;
+    margin-left: 200px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;                      /* Espacio uniforme entre cada uno de los enlaces */
+    margin-right: 250px;
+}
+
+.nav-links a {
+    color: #113176;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #0d2354;                 /* Un tono más oscuro al pasar el cursor */
 }
 
 /* 1. Contenedor Padre Flexbox */
