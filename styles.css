@@ -63,13 +63,40 @@
 
 /* 1. Contenedor Padre Flexbox */
 .welcome-container {
+    position: relative;
     display: flex;
     flex-direction: row; /* Forzar orientación horizontal */
+    justify-content: flex-start;
     align-items: center;  /* Centrar verticalmente imagen y texto */
     background-color: #363946;
     color: #F7F7FF;
     padding: 200px;
     box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Capa con la imagen de fondo y control de opacidad */
+.welcome-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./lab.webp'); /* Ruta de tu imagen */
+    background-size: cover;                  /* Escala la imagen para cubrir el contenedor */
+    background-position: center;             /* Centra la imagen */
+    background-repeat: no-repeat;
+    
+    /* CONTROL DE TRANSPARENCIA (0.0 = totalmente invisible, 1.0 = totalmente visible) */
+    opacity: 0.3;                            
+    
+    z-index: 1;                              /* Capa trasera */
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;                              /* Capa frontal, sobre el fondo */
 }
 /* 4. Columna Derecha (Texto) - Fija al 40% */
 .main {
@@ -81,11 +108,101 @@
 .main h2 {
     margin-top: 0;
     color: #F7F7FF;
+    font-size: 50px;
 }
 
 .main p {
     font-size: 1.1rem;
     line-height: 1.6;
+}
+
+/*4.1 Buttons for welcome container */
+.interactive-container {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 50%;
+    max-width: 50%;
+    box-sizing: border-box;
+}
+
+/* Grid for the three buttons */
+.buttons-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Style fot the main buttons */
+.nav-btn {
+    background-color: #113176;
+    color: #F7F7FF;
+    border: 2px solid transparent;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #F7F7FF;
+    color: #113176;
+    border-color: #113176;
+}
+
+/* Cuestión de Visibilidad */
+.hidden {
+    display: none !important;
+}
+
+/* Content box for each button */
+.content-box {
+    background-color: rgba(17, 49, 118, 0.95);
+    color: #F7F7FF;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.4s ease;
+}
+
+.content-box h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.content-box p {
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Back button */
+.back-btn {
+    margin-top: 15px;
+    background-color: transparent;
+    color: #F7F7FF;
+    border: 1px solid #F7F7FF;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* 5. Contendor para certificados */
