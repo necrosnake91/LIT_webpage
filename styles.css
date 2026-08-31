@@ -209,11 +209,56 @@
 .certificates {
     display: flex;
     flex-direction: row; /* Forzar orientación horizontal */
+    justify-content: space-between;
     align-items: center;  /* Centrar verticalmente imagen y texto */
     background-color: #f7f7f7;
     color: #363946;
     padding: 80px;
     box-sizing: border-box;
+}
+
+.certificates .main{
+    flex: 0 0 40%;
+    max-width: 40%;
+    box-sizing: border-box;
+}
+
+.certificates .main h3{
+    margin-top: 0;
+    color: #113176;
+    font-size: 2rem;   
+}
+
+.certificates .main p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Contenedor de Logotipos (Derecha) */
+.logos-container {
+    flex: 0 0 55%;                  /* Toma el 55% del ancho para los 3 logos */
+    max-width: 55%;
+    display: flex;
+    flex-direction: row;            /* Distribuye las imágenes horizontalmente */
+    justify-content: space-around;  /* Reparte el espacio entre los 3 logotipos */
+    align-items: center;            /* Centra las imágenes entre sí horizontalmente */
+    gap: 20px;                      /* Espacio mínimo entre logotipos */
+}
+
+/* Ajuste individual para cada imagen/logotipo */
+.logos-container img {
+    max-width: 130px;               /* Ajusta el ancho máximo de cada logo */
+    max-height: 80px;               /* Evita que un logo alto desproporcione la fila */
+    width: auto;
+    height: auto;
+    object-fit: contain;            /* Conserva la proporción de los logos sin deformarlos */
+    filter: grayscale(20%);         /* Opcional: suaviza los colores para un acabado elegante */
+    transition: transform 0.3s ease;
+}
+
+.logos-container img:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
 }
 
 /* 6. Contenedor para servicios ofrecidos */
