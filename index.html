@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIT webpage</title>
+
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (Kit personal) -->
+    <script src="https://kit.fontawesome.com/c57992dda8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Hoja de estilos personalizada -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="contactheader">
+        <a href="#"><i class="fa-brands fa-whatsapp"></i>Contáctanos</a>
+        <a href="#"><i class="fa-solid fa-phone"></i>Teléfono</a>
+        <a href="#"><i class="fa-regular fa-envelope"></i>Correo electrónico</a>
+    </div>
+
+    <nav class="navbar">
+        <img src="./LOGO_alt.png" alt="LOGO" class="navbar-logo">
+        <div class="nav-links">
+            <a href="#welcome" class="active">Inicio</a>
+            <a href="#acreditations" class="active">Acreditaciones</a>
+            <a href="#services" class="active">Servicios</a>
+            <a href="#facility" class="active">Infraestructura</a>
+            <a href="#contact" class="active">Contacto</a>
+        </div>
+    </nav>
+
+    <section id="welcome" class="welcome-container">
+    <!-- Columna Derecha: Texto Principal -->
+    <div class="main welcome-content">
+        <h2>Laboratorio de Inmunobiología de la Tuberculosis</h2>
+        <p>
+            Somos un laboratorio que brinda servicios a laboratorios institucionales y la industria farmacéutica para la evaluación de nuevos productos terapéuticos mediante ensayos inmunológicos
+        </p>
+    </div>
+    <div class="interactive-container">
+        <div id="buttons-menu" class="buttons-grid">
+            <button onclick="showContent('mision')" class="nav-btn">
+                <i class="fa-solid fa-bullseye"></i> Misión
+            </button>
+            <button onclick="showContent('vision')" class="nav-btn">
+            <i class="fa-solid fa-eye"></i> Visión
+            </button>
+            <button onclick="showContent('valores')" class="nav-btn">
+            <i class="fa-solid fa-hand-holding-heart"></i> Valores
+            </button>
+        </div>
+        <div id="content-display" class="content-box hidden">
+            <div id="text-area">
+            </div>
+            <button onclick="hideContent()" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>Regresar
+            </button>
+        </div>
+    </div>
+    </section>
+
+    <section id="acreditations" class="certificates">
+        <div class="main">
+            <h3>Certificados y acreditados</h3>
+            <p>
+                El LIT es un laboratorio mexicano que cuenta con la certificación en la norma ISO-9001 y acreditación en la norma ISO-17025. Por ello, los servicios que ofrecemos son precisos y confiables
+            </p>
+        </div>
+        <div class="logos-container">
+            <img src="./ISO_9001-2015.png" alt="ISO-9001">
+            <img src="./ISO_17025.png" alt="ISO-17025">
+            <img src="./LOGO_alt.png" alt="EMA">
+        </div>
+    </section>
+
+    <section id="services" class="services">
+    <!-- Encabezado de la sección -->
+    <div class="services-header">
+        <h4>Servicios ofrecidos</h4>
+        <p>
+            El LIT ofrece ensayos inmunológicos acreditados para el análisis de productos biotecnológicos
+        </p>
+    </div>
+
+    <!-- Contenedor con la cuadrícula de tarjetas -->
+    <div class="services-grid">
+        
+        <!-- Tarjeta 1 -->
+        <div class="service-card">
+            <div class="card-image">
+                <img src="./microneutralizacion.jpg" alt="Análisis de agua">
+            </div>
+            <div class="card-body">
+                <h5>Cuantificación de anticuerpos neutralizantes</h5>
+                <p>Pruebas para la detección de anticuerpos neutralizantes con técnicas de microneutralización y reducción focos fluorescentes</p>
+                <a href="#" class="card-link">
+                    Consulta a un especialista <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="service-card">
+            <div class="card-image">
+                <img src="./ELISA.jpeg" alt="Ensayos Inmunológicos">
+            </div>
+            <div class="card-body">
+                <h5>Cuantificación de anticuerpos</h5>
+                <p>Detección y cuantificación de anticuerpos humanos mediante ELISA para evaluar la efectividad de productos biotecnológicos.</p>
+                <a href="#" class="card-link">
+                    Consulta a un especialista <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="service-card">
+            <div class="card-image">
+                <img src="./citomeria.jpeg" alt="Control de Calidad">
+            </div>
+            <div class="card-body">
+                <h5>Análisis de poblaciones celulares</h5>
+                <p>Detección de la expresión de moléculas de superficie e intracelulares en células de la respuesta inmunológica.</p>
+                <a href="#" class="card-link">
+                    Consulta a un especialista <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="service-card">
+            <div class="card-image">
+                <img src="imagenes/servicio4.jpg" alt="Caracterización de proteínas">
+            </div>
+            <div class="card-body">
+                <h5>Caracterización de Proteínas</h5>
+                <p>Análisis estructurado para evaluar la estabilidad e integridad de biofármacos.</p>
+                <a href="#" class="card-link">
+                    Consultar servicio <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Tarjeta 5 -->
+        <div class="service-card">
+            <div class="card-image">
+                <img src="imagenes/servicio5.jpg" alt="Estudios de estabilidad">
+            </div>
+            <div class="card-body">
+                <h5>Estudios de Estabilidad Acelerada</h5>
+                <p>Monitoreo continuo de muestras bajo condiciones ambientales controladas.</p>
+                <a href="#" class="card-link">
+                    Consultar servicio <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Tarjeta 6 -->
+        <div class="service-card">
+            <div class="card-image">
+                <img src="imagenes/servicio6.jpg" alt="Asesoría regulatoria">
+            </div>
+            <div class="card-body">
+                <h5>Asesoría y Validación de Métodos</h5>
+                <p>Desarrollo y validación de técnicas analíticas conforme a guías internacionales.</p>
+                <a href="#" class="card-link">
+                    Consultar servicio <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Agrega aquí más tarjetas (4, 5 o 6) duplicando el bloque .service-card -->
+
+    </div>
+</section>
+
+
+    <section id="facility" class="facility">
+        <div class="side">
+            <h3>Infraestructura</h3>
+            <p>
+                La infraestructura del LIT cumple con con los estándares internacionales de las normas ISO-9001, ISO-17025 y la OCDE. Contamos con instalaciones adecuadas y equipos calificados y calibrados, lo cual respalda la calidad de nuestros resultados.
+            </p>
+            <a href="ruta-de-tu-foto.jpg" target="_blank" class="tour-btn">
+                <i class="fa-solid fa-street-view"></i> Toma un recorrido por nuestras instalaciones
+            </a>
+        </div>
+    </section>
+
+    <section id="facility" class="analitics">
+    <!-- Columna Izquierda: Texto -->
+    <div class="main">
+        <h3>Capacidades analíticas</h3>
+        <p>
+            El LIT ofrece una cartera amplia de ensayos inmunológicos para distintas matrices biológicas. Dependiendo del objetivo del análisis y la muestra se selecciona la técnica. Consulta a uno de nuestros especialistas para que conozcas las alternativas.
+        </p>
+    </div>
+
+    <!-- Columna Derecha: Cuadrícula de Botones -->
+    <div class="side">
+        <div class="tech-grid">
+            <button class="tech-btn">
+                <i class="fa-solid fa-vial"></i>
+                <span>ELISA</span>
+            </button>
+            <button class="tech-btn">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Citometría de flujo</span>
+            </button>
+            <button class="tech-btn">
+                <i class="fa-solid fa-cubes"></i>
+                <span>Ensayos multiplex</span>
+            </button>
+            <button class="tech-btn">
+                <i class="fa-solid fa-shield-virus"></i>
+                <span>Microneutralización</span>
+            </button>
+            <button class="tech-btn">
+                <i class="fa-solid fa-bacteria"></i>
+                <span>ELISpot</span>
+            </button>
+            <button class="tech-btn">
+                <i class="fa-solid fa-microscope"></i>
+                <span>Inmunofluorescencia</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+    <section id="publications" class="publications">
+    <!-- Columna Izquierda: Imagen de Fondo con Citas (Carrusel) -->
+    <div class="main">
+        <div class="quotes-card">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            
+            <!-- Cita 1 (Activa por defecto) -->
+            <div class="citation active">
+                <p class="citation-text">
+                    "Validation of a high-throughput ELISA for neutralizing antibody quantification in biopharmaceutical products."
+                </p>
+                <span class="citation-author">García, A. et al., <em>Journal of Immunological Methods</em> (2023)</span>
+            </div>
+
+            <!-- Cita 2 -->
+            <div class="citation">
+                <p class="citation-text">
+                    "Multiplex flow cytometry assays for rapid characterization of recombinant proteins in quality control."
+                </p>
+                <span class="citation-author">López, M. & Martínez, R., <em>Biotechnology Reports</em> (2022)</span>
+            </div>
+
+            <!-- Cita 3 -->
+            <div class="citation">
+                <p class="citation-text">
+                    "Comparative analysis of ELISpot and intracellular cytokine staining for cellular immunity assessment."
+                </p>
+                <span class="citation-author">Sánchez, E. et al., <em>Frontiers in Immunology</em> (2024)</span>
+            </div>
+
+            <!-- Indicadores de puntos abajo -->
+            <div class="dots-container">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Columna Derecha: Texto explicativo -->
+    <div class="side">
+        <h3>Experiencia que respalda nuestros análisis</h3>
+        <p>
+            El LIT cuenta con un amplio número de publicaciones científicas de alto impacto que respaldan la solidez técnica y científica de nuestros ensayos. Nuestro equipo investiga y valida activamente metodologías avanzadas para garantizar la máxima precisión en cada resultado.
+        </p>
+    </div>
+</section>
+
+<section id="contact" class="contact-section">
+    <div class="contact-header">
+        <h3>Platícanos sobre tus necesidades</h3>
+        <p>Ponte en contacto con nuestro equipo de especialistas para cotizaciones o dudas técnicas.</p>
+    </div>
+
+    <!-- Cuadrícula de 4 Tarjetas -->
+    <div class="contact-cards-grid">
+        <!-- Tarjeta 1: WhatsApp -->
+        <div class="contact-card">
+            <i class="fa-brands fa-whatsapp contact-icon"></i>
+            <div class="card-info">
+                <h4>WhatsApp</h4>
+                <a href="https://wa.me/525584454612" target="_blank">+52 55 8445 4612</a>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2: Teléfono -->
+        <div class="contact-card">
+            <i class="fa-solid fa-phone contact-icon"></i>
+            <div class="card-info">
+                <h4>Teléfono</h4>
+                <a href="tel:+525555680734">+52 55 5568 0734</a>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3: Correo y Formulario Rápido -->
+        <div class="contact-card card-form">
+            <i class="fa-solid fa-envelope contact-icon"></i>
+            <div class="card-info" style="width: 100%;">
+                <h4>Correo electrónico</h4>
+                <p class="email-address">lit@iner.com</p>
+                
+                <!-- Formulario que envía directamente al correo -->
+                <form action="mailto:labs@lloydmex.com" method="post" enctype="text/plain" class="quick-form">
+                    <input type="text" name="Nombre" placeholder="Tu nombre" required>
+                    <input type="email" name="Correo" placeholder="Tu correo" required>
+                    <textarea name="Mensaje" rows="2" placeholder="Escribe tu mensaje o consulta..." required></textarea>
+                    <button type="submit" class="send-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Enviar correo
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tarjeta 4: Ubicación -->
+        <div class="contact-card">
+            <i class="fa-solid fa-location-dot contact-icon"></i>
+            <div class="card-info">
+                <h4>Ubicación</h4>
+                <p>Calzada de Tlalpan 4502, Sección XVI,<br>Tlalpan, C.P. 14080,<br>Ciudad de México, México.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mapa de Google Maps (Inferior) -->
+    <div class="map-wrapper">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.4192803273183!2d-99.15570822401664!3d19.28629558196162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce01874258ddab%3A0x6b107e3240e53a25!2sInstituto%20Nacional%20de%20Enfermedades%20Respiratorias!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx" 
+        width="100%" 
+        height="320" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    </div>
+</section>
+
+    <section>
+        <div id="welcome" class="social">
+            <h3>Síguenos en nuestras redes sociales</h3>
+        </div>
+    </section>
+
+
+    <script>
+    // Datos con los contenidos
+    const infoData = {
+        mision: {
+            titulo: '<i class="fa-solid fa-bullseye"></i> Nuestra Misión',
+            texto: 'Contribuir a la generación de nuevas alternativas para el manejo de problemas de salud mediante la realización de ensayos inmunobiológicos orientados a demostrar la eficacia de nuevos agentes terapéuticos, a través de análisis confiables y oportunos.'
+        },
+        vision: {
+            titulo: '<i class="fa-solid fa-eye"></i> Nuestra Visión',
+            texto: 'Ser un laboratorio líder a nivel Institucional y Nacional, que cubra las necesidades de las partes interesadas, a través de la realización de ensayos inmunobiológicos en el campo de la biomedicina'
+        },
+        valores: {
+            titulo: '<i class="fa-solid fa-hand-holding-heart"></i> Nuestros Valores',
+            texto: 'Ética, responsabilidad, compromiso, trabajo en equipo, honestidad, mejora contínua, respeto e igualdad'
+        }
+    };
+
+    function showContent(section) {
+        const menu = document.getElementById('buttons-menu');
+        const display = document.getElementById('content-display');
+        const textArea = document.getElementById('text-area');
+
+        // Cargar el título y texto correspondiente
+        textArea.innerHTML = `
+            <h3>${infoData[section].titulo}</h3>
+            <p>${infoData[section].texto}</p>
+        `;
+
+        // Ocultar botones y mostrar cuadro con texto
+        menu.classList.add('hidden');
+        display.classList.remove('hidden');
+    }
+
+    function hideContent() {
+        const menu = document.getElementById('buttons-menu');
+        const display = document.getElementById('content-display');
+
+        // Ocultar cuadro con texto y mostrar botones de nuevo
+        display.classList.add('hidden');
+        menu.classList.remove('hidden');
+    }
+
+    let currentCitation = 0;
+    const citations = document.querySelectorAll('.citation');
+    const dots = document.querySelectorAll('.dot');
+
+    function changeCitation() {
+        // Quitar estado activo actual
+        citations[currentCitation].classList.remove('active');
+        dots[currentCitation].classList.remove('active');
+
+        // Avanzar a la siguiente cita
+        currentCitation = (currentCitation + 1) % citations.length;
+
+        // Activar la nueva cita
+        citations[currentCitation].classList.add('active');
+        dots[currentCitation].classList.add('active');
+    }
+
+    // Cambia automáticamente cada 10,000 ms (10 segundos)
+    setInterval(changeCitation, 10000);
+</script>

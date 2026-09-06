@@ -535,41 +535,297 @@
     transform: translateY(-2px);
 }
 
-/* 9. Contenedor para las publicaciones */
+/* Contenedor Principal */
 .publications {
     display: flex;
-    flex-direction: row; /* Forzar orientación horizontal */
-    align-items: center;  /* Centrar verticalmente imagen y texto */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     background-color: #f7f7f7;
-    color: #113176;
-    padding: 150px;
+    color: #363946;
+    padding: 80px 60px;
     box-sizing: border-box;
+    width: 100%;
+    gap: 40px;
 }
 
+/* Columna Izquierda: Contenedor con Imagen de Fondo */
 .publications .main {
-    flex: 0 0 60%;
-    max-width: 60%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    min-height: 400px;
     box-sizing: border-box;
-    text-align: center
-}
-
-.publications .side {
-    flex: 0 0 40%;
-    max-width: 40%;
-    box-sizing: border-box;
-    text-align: center;
-    padding-right: 20px;
-}
-
-/* 10. Contenedor para contacto y direccion */
-.contact {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
-    flex-direction: row; /* Forzar orientación horizontal */
-    align-items: center;  /* Centrar verticalmente imagen y texto */
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    
+    /* Imagen de fondo local */
+    background-image: url('./PULMONES_INER_FINAL-page-00001.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Recuadro con transparencia sobre la imagen */
+.quotes-card {
+    background-color: rgba(255, 255, 255, 0.85); /* Azul con opacidad */
+    color: #113176;
+    padding: 35px 30px 25px 30px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    backdrop-filter: blur(1px);                 /* Efecto de cristal esmerilado */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 1.8rem;
+    color: #113176;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Estilos de las citas */
+.citation {
+    display: none;                             /* Ocultas por defecto */
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.citation.active {
+    display: block;                            /* Muestra únicamente la cita activa */
+}
+
+.citation-text {
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+    color: #363946;
+}
+
+.citation-author {
+    display: block;
+    font-size: 0.9rem;
+    color: #113176;
+    font-weight: 500;
+}
+
+/* Puntos indicadores abajo */
+.dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(17, 49, 118, 0.4);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #113176;
+    width: 22px;                               /* Se alarga para resaltar */
+    border-radius: 10px;
+}
+
+/* Columna Derecha: Texto explicativo */
+.publications .side {
+    flex: 0 0 45%;
+    max-width: 45%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.publications .side h3 {
+    margin-top: 0;
+    font-size: 2.2rem;
+    color: #113176;
+    margin-bottom: 20px;
+}
+
+.publications .side p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;                       /* Texto JUSTIFICADO */
+    color: #555;
+}
+
+/* Animación de cambio suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contenedor Principal de la Sección */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #113176;
     color: #f7f7f7;
-    padding: 250px;
+    padding: 80px 60px;             /* Ajustado el exceso de padding */
     box-sizing: border-box;
+    width: 100%;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-header h3 {
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.contact-header p {
+    color: #d1d5db;
+    font-size: 1.1rem;
+}
+
+/* Cuadrícula de 2x2 para las 4 Tarjetas */
+.contact-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 30px;
+}
+
+/* Estilo individual de las Tarjetas (Fondo semitransparente) */
+.contact-card {
+    background-color: rgba(255, 255, 255, 0.08); /* Opacidad suave sobre el fondo azul */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-card:hover {
+    background-color: rgba(255, 255, 255, 0.14); /* Más visible al pasar el ratón */
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.contact-icon {
+    font-size: 1.8rem;
+    color: #93c5fd;                           /* Azul claro brillante para los íconos */
+    margin-top: 3px;
+}
+
+.card-info h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.card-info p, 
+.card-info a {
+    margin: 0;
+    color: #e0e6ed;
+    font-size: 1rem;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+.card-info a:hover {
+    color: #93c5fd;
+    text-decoration: underline;
+}
+
+/* Formulario integrado en la tarjeta de correo */
+.email-address {
+    font-weight: 600;
+    margin-bottom: 12px !important;
+    color: #93c5fd !important;
+}
+
+.quick-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.quick-form input,
+.quick-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.quick-form input::placeholder,
+.quick-form textarea::placeholder {
+    color: #aaaaaa;
+}
+
+.quick-form input:focus,
+.quick-form textarea:focus {
+    border-color: #93c5fd;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.send-btn {
+    background-color: #ffffff;
+    color: #113176;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+    background-color: #93c5fd;
+    color: #0b1f48;
+}
+
+/* Mapa Inferior */
+.map-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Adaptación para pantallas de celulares */
+@media (max-width: 768px) {
+    .contact-cards-grid {
+        grid-template-columns: 1fr;              /* 1 tarjeta por fila en móviles */
+    }
+    
+    .contact-section {
+        padding: 50px 20px;
+    }
 }
 
 /* 11. Contenedor para las redes */
