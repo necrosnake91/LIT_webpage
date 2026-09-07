@@ -61,21 +61,22 @@
     color: #0d2354;                 /* Un tono más oscuro al pasar el cursor */
 }
 
-/* 1. Contenedor Padre Flexbox */
+/* 1. Contenedor Padre */
 .welcome-container {
     position: relative;
     display: flex;
-    flex-direction: row; /* Forzar orientación horizontal */
-    justify-content: flex-start;
-    align-items: center;  /* Centrar verticalmente imagen y texto */
+    justify-content: center;
+    align-items: center;
     background-color: #363946;
     color: #F7F7FF;
-    padding: 200px;
+    padding: 100px 40px 60px 40px; /* Reducido de 200px a proporciones adecuadas */
     box-sizing: border-box;
     overflow: hidden;
+    min-height: 85vh;             /* Asegura buen alto sin romper la pantalla */
+    width: 100%;
 }
 
-/* Capa con la imagen de fondo y control de opacidad */
+/* Capa de Imagen de Fondo */
 .welcome-container::before {
     content: "";
     position: absolute;
@@ -83,67 +84,78 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('./lab.webp'); /* Ruta de tu imagen */
-    background-size: cover;                  /* Escala la imagen para cubrir el contenedor */
-    background-position: center;             /* Centra la imagen */
+    background-image: url('./lab.webp');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    
-    /* CONTROL DE TRANSPARENCIA (0.0 = totalmente invisible, 1.0 = totalmente visible) */
-    opacity: 0.3;                            
-    
-    z-index: 1;                              /* Capa trasera */
+    opacity: 0.3;
+    z-index: 1;
 }
 
-.welcome-content {
+/* Wrapper interno para organizar verticalmente */
+.welcome-wrapper {
     position: relative;
-    z-index: 2;                              /* Capa frontal, sobre el fondo */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1100px;
+    gap: 40px;
 }
-/* 4. Columna Derecha (Texto) - Fija al 40% */
+
+/* Texto Principal (Parte Superior) */
 .main {
-    flex: 0 0 40%;      /* Ocupa exactamente el 40% */
-    max-width: 40%;
+    width: 100%;
+    max-width: 800px;
     box-sizing: border-box;
+    text-align: left;
 }
 
 .main h2 {
     margin-top: 0;
     color: #F7F7FF;
-    font-size: 50px;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
 .main p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    text-align: justify;
+    color: #e0e6ed;
 }
 
-/*4.1 Buttons for welcome container */
+/* Contenedor Inferior (Botones / Contenido) */
 .interactive-container {
-    position: relative;
-    z-index: 2;
-    flex: 0 0 50%;
-    max-width: 50%;
+    width: 100%;
     box-sizing: border-box;
 }
 
-/* Grid for the three buttons */
+/* Botones alineados en la misma fila horizontal */
 .buttons-grid {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;        /* Fuerza alineación horizontal */
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;
 }
 
-/* Style fot the main buttons */
+/* Estilo individual de los botones */
 .nav-btn {
+    flex: 1;                    /* Los 3 botones se reparten el ancho por igual */
     background-color: #113176;
     color: #F7F7FF;
     border: 2px solid transparent;
-    padding: 15px 20px;
-    font-size: 1.1rem;
+    padding: 16px 20px;
+    font-size: 1.05rem;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     transition: all 0.3s ease;
 }
@@ -152,46 +164,50 @@
     background-color: #F7F7FF;
     color: #113176;
     border-color: #113176;
+    transform: translateY(-3px);
 }
 
-/* Cuestión de Visibilidad */
 .hidden {
     display: none !important;
 }
 
-/* Content box for each button */
+/* Cuadro de Contenido Desplegable */
 .content-box {
     background-color: rgba(17, 49, 118, 0.95);
     color: #F7F7FF;
-    padding: 25px;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     animation: fadeIn 0.4s ease;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .content-box h3 {
     margin-top: 0;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: #ffffff;
 }
 
 .content-box p {
     line-height: 1.6;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    text-align: justify;
 }
 
-/* Back button */
 .back-btn {
     margin-top: 15px;
     background-color: transparent;
     color: #F7F7FF;
     border: 1px solid #F7F7FF;
-    padding: 8px 16px;
+    padding: 10px 18px;
     border-radius: 5px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    font-weight: 600;
     transition: background 0.3s ease;
 }
 
@@ -199,10 +215,31 @@
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Animación de entrada suave */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   ADAPTACIÓN RESPONSIVA (MÓVILES Y TABLETAS)
+   ========================================== */
+@media (max-width: 900px) {
+    .welcome-container {
+        padding: 60px 25px;
+    }
+
+    .main h2 {
+        font-size: 2rem;
+    }
+
+    /* En celulares/tabletas los botones pasan a vertical para no apretarse */
+    .buttons-grid {
+        flex-direction: column;
+    }
+
+    .nav-btn {
+        width: 100%;
+    }
 }
 
 /* 5. Container for certificates */
@@ -232,6 +269,7 @@
 .certificates .main p {
     font-size: 1.1rem;
     line-height: 1.6;
+    color: #363946;
 }
 
 /* Contenedor de Logotipos (Derecha) */
@@ -368,91 +406,135 @@
     color: #003d82;
 }
 
-/* 7. Contenedor para la infraestructura */
-.facility{
+/* Contenedor Principal */
+.facility {
     position: relative;
-    display: flex;
-    flex-direction: row; /* Forzar orientación horizontal */
-    justify-content: flex-end;
-    align-items: center;  /* Centrar verticalmente imagen y texto */
     background-color: #f7f7f7;
     color: #363946;
-    padding: 150px;
+    padding: 80px 60px;
     box-sizing: border-box;
     width: 100%;
     min-height: 480px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Capa de la Imagen de Fondo con control de transparencia */
+/* Imagen a la izquierda con opacidad y degradado de salida (Fade-Out) */
 .facility::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 65%;                           /* Ocupa el área izquierda de la pantalla */
     height: 100%;
-    background-image: url('./facility.jpeg'); /* Modifica con la ruta de tu imagen */
+    background-image: url('./LIT_facility.PNG');
     background-size: cover;
-    background-position: center;
+    background-position: center left;
     background-repeat: no-repeat;
     
-    /* CONTROL DE TRANSPARENCIA: ajusta entre 0.0 y 1.0 */
-    opacity: 0.35;
-    
+    opacity: 0.45;                        /* Control de transparencia de la imagen */
     z-index: 1;
+
+    /* Degradado lineal de opacidad: Imagen visible a la izquierda -> se disuelve hacia la derecha */
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
 }
 
-.facility .side {
+/* Flexbox contenedor para alinear contenido sobre la capa superior */
+.facility-container {
     position: relative;
     z-index: 2;
-    flex: 0 0 35%;
-    max-width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    gap: 40px;
+}
+
+.facility .image-space {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+/* Columna Derecha (Texto e Información) */
+.facility .side {
+    flex: 0 0 45%;
+    max-width: 45%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    padding-right: 20px;
+    align-items: flex-start;              /* Alineación a la izquierda */
+    text-align: left;
 }
 
 .facility .side h3 {
     margin-top: 0;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #113176;
+    margin-bottom: 20px;
 }
 
 .facility .side p {
     font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: justify;        /* Texto JUSTIFICADO */
-    margin-bottom: 20px;
+    line-height: 1.7;
+    text-align: justify;                  /* Texto JUSTIFICADO */
+    margin-bottom: 25px;
+    color: #363946;
 }
 
-/* Estilo del Botón */
+/* Estilo del Botón de Recorrido */
 .tour-btn {
     background-color: #113176;
     color: #F7F7FF;
-    padding: 12px 20px;
+    padding: 14px 22px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
     display: inline-flex;
     align-items: center;
-    gap: 10px;                  /* Espacio entre el ícono y el texto */
+    gap: 10px;
     transition: all 0.3s ease;
     border: 2px solid transparent;
 }
 
-/* Efecto al pasar el mouse por el botón */
 .tour-btn:hover {
     background-color: #F7F7FF;
     color: #113176;
     border-color: #113176;
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(17, 49, 118, 0.15);
 }
 
-/* 8. Contenedor para la capacidad analitica */
+/* Adaptabilidad a dispositivos móviles y tabletas */
+@media (max-width: 900px) {
+    .facility {
+        padding: 60px 25px;
+    }
+
+    .facility::before {
+        width: 100%;                     /* En móviles cubre todo el fondo */
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 100%);
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 100%);
+    }
+
+    .facility-container {
+        flex-direction: column;
+    }
+
+    .facility .image-space {
+        display: none;
+    }
+
+    .facility .side {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}/* 8. Contenedor para la capacidad analitica */
 .analitics{
     display: flex;
     flex-direction: row; /* Forzar orientación horizontal */

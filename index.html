@@ -38,31 +38,35 @@
     </nav>
 
     <section id="welcome" class="welcome-container">
-    <!-- Columna Derecha: Texto Principal -->
-    <div class="main welcome-content">
-        <h2>Laboratorio de Inmunobiología de la Tuberculosis</h2>
-        <p>
-            Somos un laboratorio que brinda servicios a laboratorios institucionales y la industria farmacéutica para la evaluación de nuevos productos terapéuticos mediante ensayos inmunológicos
-        </p>
-    </div>
-    <div class="interactive-container">
-        <div id="buttons-menu" class="buttons-grid">
-            <button onclick="showContent('mision')" class="nav-btn">
-                <i class="fa-solid fa-bullseye"></i> Misión
-            </button>
-            <button onclick="showContent('vision')" class="nav-btn">
-            <i class="fa-solid fa-eye"></i> Visión
-            </button>
-            <button onclick="showContent('valores')" class="nav-btn">
-            <i class="fa-solid fa-hand-holding-heart"></i> Valores
-            </button>
+    <div class="welcome-wrapper">
+        <!-- Bloque Superior: Título y Descripción -->
+        <div class="main welcome-content">
+            <h2>Laboratorio de Inmunobiología de la Tuberculosis</h2>
+            <p>
+                Somos un laboratorio que brinda servicios a laboratorios institucionales y la industria farmacéutica para la evaluación de nuevos productos terapéuticos mediante ensayos inmunológicos.
+            </p>
         </div>
-        <div id="content-display" class="content-box hidden">
-            <div id="text-area">
+
+        <!-- Bloque Inferior: Botones Alineados / Cuadro de Texto -->
+        <div class="interactive-container">
+            <div id="buttons-menu" class="buttons-grid">
+                <button onclick="showContent('mision')" class="nav-btn">
+                    <i class="fa-solid fa-bullseye"></i> Misión
+                </button>
+                <button onclick="showContent('vision')" class="nav-btn">
+                    <i class="fa-solid fa-eye"></i> Visión
+                </button>
+                <button onclick="showContent('valores')" class="nav-btn">
+                    <i class="fa-solid fa-hand-holding-heart"></i> Valores
+                </button>
             </div>
-            <button onclick="hideContent()" class="back-btn">
-                <i class="fa-solid fa-arrow-left"></i>Regresar
-            </button>
+
+            <div id="content-display" class="content-box hidden">
+                <div id="text-area"></div>
+                <button onclick="hideContent()" class="back-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Regresar
+                </button>
+            </div>
         </div>
     </div>
     </section>
@@ -110,10 +114,10 @@
         <!-- Tarjeta 2 -->
         <div class="service-card">
             <div class="card-image">
-                <img src="./ELISA.jpeg" alt="Ensayos Inmunológicos">
+                <img src="./ELISA.JPG" alt="Ensayos Inmunológicos">
             </div>
             <div class="card-body">
-                <h5>Cuantificación de anticuerpos</h5>
+                <h5>Cuantificación de anticuerpos totales</h5>
                 <p>Detección y cuantificación de anticuerpos humanos mediante ELISA para evaluar la efectividad de productos biotecnológicos.</p>
                 <a href="#" class="card-link">
                     Consulta a un especialista <i class="fa-solid fa-arrow-right"></i>
@@ -141,8 +145,8 @@
                 <img src="imagenes/servicio4.jpg" alt="Caracterización de proteínas">
             </div>
             <div class="card-body">
-                <h5>Caracterización de Proteínas</h5>
-                <p>Análisis estructurado para evaluar la estabilidad e integridad de biofármacos.</p>
+                <h5>Biología molecular</h5>
+                <p>Análisis de la expresión génica y detección de variantes o mutaciones</p>
                 <a href="#" class="card-link">
                     Consultar servicio <i class="fa-solid fa-arrow-right"></i>
                 </a>
@@ -152,11 +156,11 @@
         <!-- Tarjeta 5 -->
         <div class="service-card">
             <div class="card-image">
-                <img src="imagenes/servicio5.jpg" alt="Estudios de estabilidad">
+                <img src="./ELISPOT.jpg" alt="Estudios de estabilidad">
             </div>
             <div class="card-body">
-                <h5>Estudios de Estabilidad Acelerada</h5>
-                <p>Monitoreo continuo de muestras bajo condiciones ambientales controladas.</p>
+                <h5>Estudios de la producción de citocinas específicas</h5>
+                <p>Cuantificación y monitoreo de la producción de citocinas específicas mediante ELISpot</p>
                 <a href="#" class="card-link">
                     Consultar servicio <i class="fa-solid fa-arrow-right"></i>
                 </a>
@@ -169,8 +173,8 @@
                 <img src="imagenes/servicio6.jpg" alt="Asesoría regulatoria">
             </div>
             <div class="card-body">
-                <h5>Asesoría y Validación de Métodos</h5>
-                <p>Desarrollo y validación de técnicas analíticas conforme a guías internacionales.</p>
+                <h5>Cultivos celulares</h5>
+                <p>Obtención, purificación y mantenimiento de células para su cultivo in vitro. Caracterización de la pureza del cultivo</p>
                 <a href="#" class="card-link">
                     Consultar servicio <i class="fa-solid fa-arrow-right"></i>
                 </a>
@@ -180,19 +184,25 @@
         <!-- Agrega aquí más tarjetas (4, 5 o 6) duplicando el bloque .service-card -->
 
     </div>
-</section>
+    </section>
 
 
-    <section id="facility" class="facility">
+   <section id="facility" class="facility">
+    <div class="facility-container">
+        <!-- Espacio izquierdo reservado para mostrar la imagen -->
+        <div class="image-space"></div>
+
+        <!-- Columna Derecha: Texto explicativo y Botón -->
         <div class="side">
             <h3>Infraestructura</h3>
             <p>
-                La infraestructura del LIT cumple con con los estándares internacionales de las normas ISO-9001, ISO-17025 y la OCDE. Contamos con instalaciones adecuadas y equipos calificados y calibrados, lo cual respalda la calidad de nuestros resultados.
+                La infraestructura del LIT cumple con los estándares internacionales de las normas ISO-9001, ISO-17025 y la OCDE. Contamos con instalaciones adecuadas y equipos calificados y calibrados, lo cual respalda la calidad de nuestros resultados.
             </p>
             <a href="ruta-de-tu-foto.jpg" target="_blank" class="tour-btn">
                 <i class="fa-solid fa-street-view"></i> Toma un recorrido por nuestras instalaciones
             </a>
         </div>
+    </div>
     </section>
 
     <section id="facility" class="analitics">
@@ -352,11 +362,44 @@
     </div>
 </section>
 
-    <section>
-        <div id="welcome" class="social">
-            <h3>Síguenos en nuestras redes sociales</h3>
+    <footer class="footer-section">
+    <!-- Subsección superior: Redes Sociales -->
+    <div class="social-container">
+        <h3>Síguenos en nuestras redes sociales</h3>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="social-btn facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social-btn instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
         </div>
-    </section>
+    </div>
+
+    <!-- Subsección central: Navegación e Información básica -->
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h4>LIT</h4>
+            <p>Laboratorio de Inmunología de la Tuberculosis. Compromiso, calidad y rigor científico en cada ensayo biotecnológico.</p>
+        </div>
+
+        <div class="footer-links">
+            <h5>Enlaces Rápidos</h5>
+            <ul>
+                <li><a href="#welcome">Inicio</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#analytics">Capacidades Analíticas</a></li>
+                <li><a href="#publications">Publicaciones</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Subsección inferior: Derechos de autor -->
+    <div class="footer-bottom">
+        <p>&copy; 2026 Laboratorio LIT. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
 
     <script>
