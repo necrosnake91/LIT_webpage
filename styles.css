@@ -316,62 +316,122 @@
         width: 100%;
     }
 }
-
 /* 5. Container for certificates */
 .certificates {
     display: flex;
-    flex-direction: row; /* Forzar orientación horizontal */
+    flex-direction: row; /* Orientación horizontal para pantallas grandes */
     justify-content: space-between;
-    align-items: center;  /* Centrar verticalmente imagen y texto */
+    align-items: center; /* Centrar verticalmente texto y logotipos */
     background-color: #f7f7f7;
     color: #363946;
-    padding: 80px;
+    padding: 80px 5%;     /* Padding lateral relativo (5%) para evitar desbordamientos */
+    box-sizing: border-box;
+    width: 100%;
+    gap: 40px;            /* Espaciado uniforme entre la columna principal y la de logos */
+}
+
+.certificates .main {
+    flex: 1 1 40%;
+    max-width: 45%;
     box-sizing: border-box;
 }
 
-.certificates .main{
-    flex: 0 0 40%;
-    max-width: 40%;
-    box-sizing: border-box;
-}
-
-.certificates .main h3{
+.certificates .main h3 {
     margin-top: 0;
     color: #113176;
-    font-size: 2rem;   
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 .certificates .main p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #363946;
+    text-align: justify; /* Mantiene la estética limpia en la descripción */
 }
 
 /* Contenedor de Logotipos (Derecha) */
 .logos-container {
-    flex: 0 0 55%;                  /* Toma el 55% del ancho para los 3 logos */
+    flex: 1 1 55%;
     max-width: 55%;
     display: flex;
-    flex-direction: row;            /* Distribuye las imágenes horizontalmente */
-    justify-content: space-around;  /* Reparte el espacio entre los 3 logotipos */
-    align-items: center;            /* Centra las imágenes entre sí horizontalmente */
-    gap: 20px;                      /* Espacio mínimo entre logotipos */
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite acomodar elementos si la pantalla se reduce levemente */
 }
 
 /* Ajuste individual para cada imagen/logotipo */
 .logos-container img {
-    max-width: 130px;               /* Ajusta el ancho máximo de cada logo */
-    max-height: 170px;               /* Evita que un logo alto desproporcione la fila */
+    max-width: 130px;
+    max-height: 170px;
     width: auto;
     height: auto;
-    object-fit: contain;            /* Conserva la proporción de los logos sin deformarlos */
-    filter: grayscale(20%);         /* Opcional: suaviza los colores para un acabado elegante */
-    transition: transform 0.3s ease;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .logos-container img:hover {
     transform: scale(1.05);
     filter: grayscale(0%);
+}
+
+/* ===================================================
+   ADAPTACIÓN RESPONSIVA (Tabletas y Celulares)
+   =================================================== */
+
+/* Tabletas e interfaces medianas (hasta 992px) */
+@media (max-width: 992px) {
+    .certificates {
+        padding: 60px 4%;
+        gap: 30px;
+    }
+
+    .certificates .main h3 {
+        font-size: 1.75rem;
+    }
+
+    .certificates .main p {
+        font-size: 1rem;
+    }
+
+    .logos-container img {
+        max-width: 100px;
+        max-height: 140px;
+    }
+}
+
+/* Celulares (hasta 768px) */
+@media (max-width: 768px) {
+    .certificates {
+        flex-direction: column;  /* Se apilan verticalmente */
+        padding: 50px 20px;
+        text-align: center;      /* Centrado general para vista móvil */
+    }
+
+    .certificates .main {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .certificates .main p {
+        text-align: center;      /* Texto centrado en pantallas pequeñas */
+    }
+
+    .logos-container {
+        flex: 1 1 100%;
+        max-width: 100%;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 10px;
+    }
+
+    .logos-container img {
+        max-width: 90px;         /* Tamaño optimizado para pantallas táctiles */
+        max-height: 120px;
+    }
 }
 
 /* 6. Container for services */
