@@ -286,7 +286,7 @@
 /* Ajuste individual para cada imagen/logotipo */
 .logos-container img {
     max-width: 130px;               /* Ajusta el ancho máximo de cada logo */
-    max-height: 80px;               /* Evita que un logo alto desproporcione la fila */
+    max-height: 170px;               /* Evita que un logo alto desproporcione la fila */
     width: auto;
     height: auto;
     object-fit: contain;            /* Conserva la proporción de los logos sin deformarlos */
@@ -421,31 +421,52 @@
     align-items: center;
 }
 
-/* Imagen a la izquierda con opacidad y degradado de salida (Fade-Out) */
-.facility::before {
-    content: "";
+/* Carrusel de fondo a la izquierda */
+.facility-bg-carousel {
     position: absolute;
     top: 0;
     left: 0;
-    width: 65%;                           /* Ocupa el área izquierda de la pantalla */
+    width: 65%;
     height: 100%;
-    background-image: url('./LIT_facility.PNG');
+    z-index: 1;
+}
+
+.facility-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center left;
     background-repeat: no-repeat;
-    
-    opacity: 0.45;                        /* Control de transparencia de la imagen */
-    z-index: 1;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out; /* Transición suave entre imágenes */
+}
 
-    /* Degradado lineal de opacidad: Imagen visible a la izquierda -> se disuelve hacia la derecha */
+.facility-slide.active {
+    opacity: 0.45; /* Control de opacidad activo */
+}
+
+/* Máscara con degradado de salida (Fade-Out hacia la derecha) */
+.facility-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 65%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    background: transparent;
+    
     -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
     mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
 }
 
-/* Flexbox contenedor para alinear contenido sobre la capa superior */
+/* Flexbox contenedor */
 .facility-container {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -458,16 +479,42 @@
 .facility .image-space {
     flex: 0 0 50%;
     max-width: 50%;
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    align-items: flex-end;
 }
 
-/* Columna Derecha (Texto e Información) */
+/* Puntos indicadores sobre el área de la foto */
+.facility-dots {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.f-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(17, 49, 118, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.f-dot.active {
+    background-color: #113176;
+    width: 22px;
+    border-radius: 10px;
+}
+
+/* Columna Derecha */
 .facility .side {
     flex: 0 0 45%;
     max-width: 45%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;              /* Alineación a la izquierda */
+    align-items: flex-start;
     text-align: left;
 }
 
@@ -481,12 +528,12 @@
 .facility .side p {
     font-size: 1.1rem;
     line-height: 1.7;
-    text-align: justify;                  /* Texto JUSTIFICADO */
+    text-align: justify;
     margin-bottom: 25px;
     color: #363946;
 }
 
-/* Estilo del Botón de Recorrido */
+/* Estilo del Botón */
 .tour-btn {
     background-color: #113176;
     color: #F7F7FF;
@@ -510,14 +557,18 @@
     box-shadow: 0 4px 12px rgba(17, 49, 118, 0.15);
 }
 
-/* Adaptabilidad a dispositivos móviles y tabletas */
+/* Adaptabilidad a dispositivos móviles */
 @media (max-width: 900px) {
     .facility {
         padding: 60px 25px;
     }
 
-    .facility::before {
-        width: 100%;                     /* En móviles cubre todo el fondo */
+    .facility-bg-carousel,
+    .facility-mask {
+        width: 100%;
+    }
+
+    .facility-mask {
         -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 100%);
         mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 100%);
     }
@@ -534,7 +585,8 @@
         flex: 0 0 100%;
         max-width: 100%;
     }
-}/* 8. Contenedor para la capacidad analitica */
+}
+/* 8. Contenedor para la capacidad analitica */
 .analitics{
     display: flex;
     flex-direction: row; /* Forzar orientación horizontal */
@@ -660,9 +712,11 @@
     border-radius: 10px;
     width: 100%;
     box-sizing: border-box;
-    backdrop-filter: blur(1px);                 /* Efecto de cristal esmerilado */
+    backdrop-filter: blur(8px);                 /* Efecto de cristal esmerilado */
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .quote-icon {
@@ -685,9 +739,12 @@
 .citation-text {
     font-size: 1.05rem;
     font-style: italic;
+    font-weight: 500;
     line-height: 1.6;
     margin: 0 0 15px 0;
-    color: #363946;
+    color: #113176;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #363946;
 }
 
 .citation-author {
@@ -738,7 +795,7 @@
     font-size: 1.1rem;
     line-height: 1.7;
     text-align: justify;                       /* Texto JUSTIFICADO */
-    color: #555;
+    color: #363946;
 }
 
 /* Animación de cambio suave */
