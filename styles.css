@@ -766,27 +766,27 @@
     }
 }
 /* 8. Contenedor para la capacidad analitica */
-.analitics{
+.analitics {
     display: flex;
-    flex-direction: row; /* Forzar orientación horizontal */
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;  /* Centrar verticalmente imagen y texto */
+    align-items: center;
     background-color: #113176;
     color: #f7f7f7;
-    padding: 150px;
+    padding: 100px 5%;              /* Cambiado de 150px a un padding adaptable */
     box-sizing: border-box;
     width: 100%;
     gap: 40px;
 }
 
-.analitics .main{
+.analitics .main {
     flex: 0 0 45%;
     max-width: 45%;
     box-sizing: border-box;
-    text-align: left
+    text-align: left;
 }
 
-.analitics .main .h3 {
+.analitics .main h3 {
     margin-top: 0;
     font-size: 2.2rem;
     color: #ffffff;
@@ -796,30 +796,30 @@
 .analitics .main p {
     font-size: 1.1rem;
     line-height: 1.7;
-    text-align: justify;            /* Texto JUSTIFICADO */
+    text-align: justify;
     color: #e0e6ed;
 }
 
-.analitics .side{
+.analitics .side {
     flex: 0 0 50%;
     max-width: 50%;
     box-sizing: border-box;
 }
 
-/* Cuadrícula de 2 columnas para los botones */
+/* Cuadrícula de botones */
 .tech-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;                      /* Espacio ligero entre botones como en la imagen */
-    background-color: rgba(255, 255, 255, 0.05); /* Marco sutil translúcido */
+    gap: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 15px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Estilo individual de los botones (Semi-transparente) */
+/* Estilo individual de los botones */
 .tech-btn {
-    background-color: rgba(255, 255, 255, 0.12); /* Transparencia inicial */
+    background-color: rgba(255, 255, 255, 0.12);
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 20px 15px;
@@ -829,25 +829,86 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 15px;                      /* Distancia entre ícono y texto */
+    gap: 15px;
     text-align: left;
     transition: all 0.3s ease;
 }
 
 .tech-btn i {
     font-size: 1.3rem;
-    color: #93c5fd;                 /* Color contraste suave para los íconos */
+    color: #93c5fd;
     min-width: 25px;
     text-align: center;
 }
 
-/* Efecto Hover: Más oscuro manteniendo transparencia */
+/* Efecto Hover */
 .tech-btn:hover {
-    background-color: rgba(0, 0, 0, 0.4);       /* Tono más oscuro translúcido */
+    background-color: rgba(0, 0, 0, 0.4);
     border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
 }
 
+/* ===================================================
+   ADAPTACIÓN RESPONSIVA (Tabletas y Celulares)
+   =================================================== */
+
+/* Tabletas e interfaces medianas (hasta 1024px) */
+@media (max-width: 1024px) {
+    .analitics {
+        padding: 80px 4%;
+        gap: 30px;
+    }
+
+    .analitics .main {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+
+    .analitics .side {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+
+    .tech-btn {
+        padding: 16px 12px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Celulares (hasta 768px) */
+@media (max-width: 768px) {
+    .analitics {
+        flex-direction: column;    /* Se apila el texto arriba y los botones abajo */
+        padding: 60px 20px;
+    }
+
+    .analitics .main,
+    .analitics .side {
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .analitics .main h3 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .analitics .main p {
+        font-size: 1rem;
+        text-align: left;           /* Alineación estándar limpia para lectura móvil */
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr; /* 1 sola columna para que los 8 botones no se amontonen */
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .tech-btn {
+        padding: 15px 12px;
+    }
+}
 /* Contenedor Principal */
 .publications {
     display: flex;
@@ -856,7 +917,7 @@
     align-items: center;
     background-color: #f7f7f7;
     color: #363946;
-    padding: 80px 60px;
+    padding: 80px 5%;              /* Cambiado a padding porcentual dinámico */
     box-sizing: border-box;
     width: 100%;
     gap: 40px;
@@ -885,13 +946,13 @@
 
 /* Recuadro con transparencia sobre la imagen */
 .quotes-card {
-    background-color: rgba(255, 255, 255, 0.85); /* Azul con opacidad */
+    background-color: rgba(255, 255, 255, 0.85);
     color: #113176;
     padding: 35px 30px 25px 30px;
     border-radius: 10px;
     width: 100%;
     box-sizing: border-box;
-    backdrop-filter: blur(8px);                 /* Efecto de cristal esmerilado */
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
@@ -907,12 +968,12 @@
 
 /* Estilos de las citas */
 .citation {
-    display: none;                             /* Ocultas por defecto */
-    animation: fadeIn 0.8s ease-in-out;
+    display: none;
 }
 
 .citation.active {
-    display: block;                            /* Muestra únicamente la cita activa */
+    display: block;
+    animation: fadeIn 0.8s ease-in-out;
 }
 
 .citation-text {
@@ -946,12 +1007,13 @@
     height: 10px;
     background-color: rgba(17, 49, 118, 0.4);
     border-radius: 50%;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .dot.active {
     background-color: #113176;
-    width: 22px;                               /* Se alarga para resaltar */
+    width: 22px;
     border-radius: 10px;
 }
 
@@ -973,7 +1035,7 @@
 .publications .side p {
     font-size: 1.1rem;
     line-height: 1.7;
-    text-align: justify;                       /* Texto JUSTIFICADO */
+    text-align: justify;
     color: #363946;
 }
 
@@ -981,6 +1043,72 @@
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================================================
+   ADAPTACIÓN RESPONSIVA (Tabletas y Celulares)
+   =================================================== */
+
+/* Tabletas e interfaces medianas (hasta 1024px) */
+@media (max-width: 1024px) {
+    .publications {
+        padding: 80px 4%;
+        gap: 30px;
+    }
+
+    .publications .main,
+    .publications .side {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+
+    .publications .side h3 {
+        font-size: 1.9rem;
+    }
+
+    .quotes-card {
+        padding: 25px 20px 20px 20px;
+    }
+}
+
+/* Celulares (hasta 768px) */
+@media (max-width: 768px) {
+    .publications {
+        flex-direction: column;    /* Cambia a disposición vertical */
+        padding: 60px 20px;
+        gap: 35px;
+    }
+
+    .publications .main,
+    .publications .side {
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .publications .main {
+        min-height: auto;          /* Altura adaptable para pantallas pequeñas */
+        padding: 20px 15px;
+    }
+
+    .quotes-card {
+        padding: 20px 15px;
+    }
+
+    .citation-text {
+        font-size: 0.98rem;        /* Tamaño de letra óptimo para celulares */
+        line-height: 1.5;
+    }
+
+    .publications .side h3 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .publications .side p {
+        font-size: 1rem;
+        text-align: left;           /* Alineación limpia sin espacios excesivos entre palabras */
+    }
 }
 
 /* Contenedor Principal de la Sección */
