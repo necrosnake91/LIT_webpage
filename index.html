@@ -21,9 +21,9 @@
 <body>
 
     <div class="contactheader">
-        <a href="#"><i class="fa-brands fa-whatsapp"></i>Contáctanos</a>
-        <a href="#"><i class="fa-solid fa-phone"></i>Teléfono</a>
-        <a href="#"><i class="fa-regular fa-envelope"></i>Correo electrónico</a>
+        <a href="#contact"><i class="fa-brands fa-whatsapp"></i>Contáctanos</a>
+        <a href="#contact"><i class="fa-solid fa-phone"></i>Teléfono</a>
+        <a href="#contact"><i class="fa-regular fa-envelope"></i>Correo electrónico</a>
     </div>
 
     <nav class="navbar">
@@ -128,7 +128,7 @@
         <!-- Tarjeta 3 -->
         <div class="service-card">
             <div class="card-image">
-                <img src="./citomeria.jpeg" alt="Control de Calidad">
+                <img src="./Citometro.jpg" alt="Control de Calidad">
             </div>
             <div class="card-body">
                 <h5>Análisis de poblaciones celulares</h5>
@@ -142,11 +142,11 @@
         <!-- Tarjeta 4 -->
         <div class="service-card">
             <div class="card-image">
-                <img src="imagenes/servicio4.jpg" alt="Caracterización de proteínas">
+                <img src="qPCR.jpg" alt="Caracterización de proteínas">
             </div>
             <div class="card-body">
                 <h5>Biología molecular</h5>
-                <p>Análisis de la expresión génica y detección de variantes o mutaciones</p>
+                <p>Análisis de la expresión génica y detección de variantes o mutaciones en muestras provenientes de tejidos, cultivos celulares y sangre periférica</p>
                 <a href="#" class="card-link">
                     Consultar servicio <i class="fa-solid fa-arrow-right"></i>
                 </a>
@@ -170,7 +170,7 @@
         <!-- Tarjeta 6 -->
         <div class="service-card">
             <div class="card-image">
-                <img src="imagenes/servicio6.jpg" alt="Asesoría regulatoria">
+                <img src="Cultivo.jpg" alt="Asesoría regulatoria">
             </div>
             <div class="card-body">
                 <h5>Cultivos celulares</h5>
@@ -188,9 +188,26 @@
 
 
    <section id="facility" class="facility">
+    <!-- Carrusel de imágenes de fondo -->
+    <div class="facility-bg-carousel">
+        <div class="facility-slide active" style="background-image: url('./LIT_facility.PNG');"></div>
+        <div class="facility-slide" style="background-image: url('./ELISA_324.jpg');"></div>
+        <div class="facility-slide" style="background-image: url('./Citometro.jpg');"></div>
+    </div>
+
+    <!-- Máscara con la degradación y difuminado -->
+    <div class="facility-mask"></div>
+
     <div class="facility-container">
-        <!-- Espacio izquierdo reservado para mostrar la imagen -->
-        <div class="image-space"></div>
+        <!-- Espacio izquierdo reservado para ver las fotos -->
+        <div class="image-space">
+            <!-- Indicadores opcionales sobre la imagen -->
+            <div class="facility-dots">
+                <span class="f-dot active" onclick="setFacilitySlide(0)"></span>
+                <span class="f-dot" onclick="setFacilitySlide(1)"></span>
+                <span class="f-dot" onclick="setFacilitySlide(2)"></span>
+            </div>
+        </div>
 
         <!-- Columna Derecha: Texto explicativo y Botón -->
         <div class="side">
@@ -203,7 +220,7 @@
             </a>
         </div>
     </div>
-    </section>
+</section>
 
     <section id="facility" class="analitics">
     <!-- Columna Izquierda: Texto -->
@@ -241,6 +258,14 @@
                 <i class="fa-solid fa-microscope"></i>
                 <span>Inmunofluorescencia</span>
             </button>
+            <button class="tech-btn">
+                <i class="fa-solid fa-dna"></i>
+                <span>qPCR</span>
+            </button>
+            <button class="tech-btn">
+                <i class="fa-solid fa-flask"></i>
+                <span>Cultivo celular</span>
+            </button>
         </div>
     </div>
 </section>
@@ -254,30 +279,66 @@
             <!-- Cita 1 (Activa por defecto) -->
             <div class="citation active">
                 <p class="citation-text">
-                    "Validation of a high-throughput ELISA for neutralizing antibody quantification in biopharmaceutical products."
+                    "Validation of advanced immunoassays under ISO/IEC 17025:2017: a strategic framework for immunogenicity assays"
                 </p>
-                <span class="citation-author">García, A. et al., <em>Journal of Immunological Methods</em> (2023)</span>
+                <span class="citation-author">Palencia-Reyes, A., Juárez, E., Blancas-Ruiíz, C. et al., <em>Accred Qual Assur</em> (2026)</span>
             </div>
 
             <!-- Cita 2 -->
             <div class="citation">
                 <p class="citation-text">
-                    "Multiplex flow cytometry assays for rapid characterization of recombinant proteins in quality control."
+                    "Biological sample storage in biomedical research"
                 </p>
-                <span class="citation-author">López, M. & Martínez, R., <em>Biotechnology Reports</em> (2022)</span>
+                <span class="citation-author">Carranza, C., Juárez, E., Carreto-Binaghi, L., et al.,  <em>Clinica Chimica Acta</em> (2026)</span>
             </div>
 
             <!-- Cita 3 -->
             <div class="citation">
                 <p class="citation-text">
-                    "Comparative analysis of ELISpot and intracellular cytokine staining for cellular immunity assessment."
+                    "Phase 2/3 study evaluating safety, immunogenicity, and noninferiority of single booster dose of AVX/COVID-12 vaccine"
                 </p>
-                <span class="citation-author">Sánchez, E. et al., <em>Frontiers in Immunology</em> (2024)</span>
+                <span class="citation-author">Constantino López-Macías et al. , <em>Sci. Adv.</em> (2025)</span>
+            </div>
+
+            <!-- Cita 4 -->
+            <div class="citation">
+                <p class="citation-text">
+                    "Phase II study on the safety and immunogenicity of single-dose intramuscular or intranasal administration of the AVX/COVID-12 “Patria” recombinant Newcastle disease virus vaccine as a heterologous booster against COVID-19 in Mexico"
+                </p>
+                <span class="citation-author">Constantino López-Macías et al. , <em>Vaccine</em> (2025)</span>
+            </div>
+
+             <!-- Cita 5 -->
+            <div class="citation">
+                <p class="citation-text">
+                    "Validation of the Enzyme-Linked ImmunoSpot Analytic Method for the Detection of Human IFN-γ from Peripheral Blood Mononuclear Cells in Response to the SARS-CoV-2 Spike Protein"
+                </p>
+                <span class="citation-author">Carreto-Binaghi, L. E., Nieto-Ponce, M., Palencia-Reyes, A., Chávez-Domínguez, R. L., et al., <em>Vaccine</em> (2024)</span>
+            </div>
+
+            <!-- Cita 6 -->
+            <div class="citation">
+                <p class="citation-text">
+                    "Associated uncertainty estimation during the validation process of TCID50 and FRNT neutralization assays against SARS-CoV-2 variants, used in population surveillance research and correlates of protection"
+                </p>
+                <span class="citation-author">Reyna-Rosas, E., Nieto-Ponce, M., Palencia-Reyes, R., et al., <em>Vaccine</em> (2026)</span>
+            </div>
+
+             <!-- Cita 7 -->
+            <div class="citation">
+                <p class="citation-text">
+                    " The Validation of a Hemagglutination Inhibition Assay That Detects Antibodies Against a Newcastle Disease Virus-Based Vaccine Vector in Human Serum Samples"
+                </p>
+                <span class="citation-author">Nieto-Ponce, M., Reyna-Rosas, E., Palencia-Reyes, R. A., Blancas-Ruíz, C., et al., <em>Vaccines</em> (2025)</span>
             </div>
 
             <!-- Indicadores de puntos abajo -->
             <div class="dots-container">
                 <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
             </div>
@@ -315,7 +376,7 @@
             <i class="fa-solid fa-phone contact-icon"></i>
             <div class="card-info">
                 <h4>Teléfono</h4>
-                <a href="tel:+525555680734">+52 55 5568 0734</a>
+                <a href="tel:+525555680734">+52 55 5552323082 ext 1502</a>
             </div>
         </div>
 
@@ -324,10 +385,10 @@
             <i class="fa-solid fa-envelope contact-icon"></i>
             <div class="card-info" style="width: 100%;">
                 <h4>Correo electrónico</h4>
-                <p class="email-address">lit@iner.com</p>
+                <p class="email-address">claudia.carranza@iner.gob.mx</p>
                 
                 <!-- Formulario que envía directamente al correo -->
-                <form action="mailto:labs@lloydmex.com" method="post" enctype="text/plain" class="quick-form">
+                <form action="mailto:rodolfo_chvz@outlook.com" method="post" enctype="text/plain" class="quick-form">
                     <input type="text" name="Nombre" placeholder="Tu nombre" required>
                     <input type="email" name="Correo" placeholder="Tu correo" required>
                     <textarea name="Mensaje" rows="2" placeholder="Escribe tu mensaje o consulta..." required></textarea>
@@ -367,10 +428,10 @@
     <div class="social-container">
         <h3>Síguenos en nuestras redes sociales</h3>
         <div class="social-icons">
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="social-btn facebook">
+            <a href="https://www.facebook.com/profile.php?id=61590517745386" target="_blank" aria-label="Facebook" class="social-btn facebook">
                 <i class="fa-brands fa-facebook-f"></i>
             </a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social-btn instagram">
+            <a href="https://www.instagram.com/inmunonautas?utm_source=qr&stkn=MWwzaGEyM3Nna211dQ==" target="_blank" aria-label="Instagram" class="social-btn instagram">
                 <i class="fa-brands fa-instagram"></i>
             </a>
         </div>
@@ -464,3 +525,39 @@
     // Cambia automáticamente cada 10,000 ms (10 segundos)
     setInterval(changeCitation, 10000);
 </script>
+
+<script>
+    let currentFacilitySlide = 0;
+const facilitySlides = document.querySelectorAll('.facility-slide');
+const facilityDots = document.querySelectorAll('.f-dot');
+
+function showFacilitySlide(index) {
+    facilitySlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+    facilityDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+    currentFacilitySlide = index;
+}
+
+function nextFacilitySlide() {
+    let nextIndex = (currentFacilitySlide + 1) % facilitySlides.length;
+    showFacilitySlide(nextIndex);
+}
+
+function setFacilitySlide(index) {
+    showFacilitySlide(index);
+    resetFacilityTimer();
+}
+
+// Rotación automática cada 5 segundos
+let facilityInterval = setInterval(nextFacilitySlide, 5000);
+
+function resetFacilityTimer() {
+    clearInterval(facilityInterval);
+    facilityInterval = setInterval(nextFacilitySlide, 5000);
+}
+</script>
+
+
