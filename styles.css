@@ -28,26 +28,31 @@
 }
 
 /* Contenedor principal de la barra de navegación */
+/* Contenedor principal de la barra de navegación */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #f7f7f7;
     color: #113176;
-    padding: 20px 20px;
-    overflow: hidden;
+    padding: 15px 5%;              /* Control dinámico del espacio en los extremos */
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1000;
 }
 
 .navbar-logo {
-    height: 80px;                   /* Ajusta el alto de la imagen a tus necesidades */
+    height: 70px;                  /* Alto adaptable */
     width: auto;
-    margin-left: 200px;
+    object-fit: contain;
+    transition: height 0.3s ease;
 }
 
 .nav-links {
     display: flex;
-    gap: 25px;                      /* Espacio uniforme entre cada uno de los enlaces */
-    margin-right: 250px;
+    gap: 25px;                     /* Espacio uniforme entre cada uno de los enlaces */
+    align-items: center;
 }
 
 .nav-links a {
@@ -55,11 +60,81 @@
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+    font-size: 1rem;
 }
 
 .nav-links a:hover {
-    color: #0d2354;                 /* Un tono más oscuro al pasar el cursor */
+    color: #0d2354;
 }
+
+/* Ocultar el icono hamburguesa por defecto en laptops/escritorio */
+.hamburger-menu {
+    display: none;
+    font-size: 1.8rem;
+    color: #113176;
+    cursor: pointer;
+}
+
+/* ===================================================
+   ADAPTACIÓN RESPONSIVA (Tabletas y Celulares)
+   =================================================== */
+
+/* Tabletas y pantallas intermedias (hasta 1024px) */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 3%;
+    }
+
+    .navbar-logo {
+        height: 60px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.95rem;
+    }
+}
+
+/* Celulares (hasta 768px) */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;            /* Mostrar el botón del menú en móviles */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #f7f7f7;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;             /* Oculto inicialmente */
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links.active {
+        max-height: 300px;         /* Despliega los enlaces al abrir */
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .nav-links a {
+        padding: 15px 25px;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .navbar-logo {
+        height: 50px;              /* Ajuste de logo para celulares pequeños */
+    }
+}
+
 
 /* 1. Contenedor Padre */
 .welcome-container {

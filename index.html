@@ -27,15 +27,23 @@
     </div>
 
     <nav class="navbar">
-        <img src="./LOGO_alt.png" alt="LOGO" class="navbar-logo">
-        <div class="nav-links">
-            <a href="#welcome" class="active">Inicio</a>
-            <a href="#acreditations" class="active">Acreditaciones</a>
-            <a href="#services" class="active">Servicios</a>
-            <a href="#facility" class="active">Infraestructura</a>
-            <a href="#contact" class="active">Contacto</a>
-        </div>
-    </nav>
+    <a href="#">
+        <img src="LOGO_alt.png" alt="Logo LIT" class="navbar-logo">
+    </a>
+
+    <!-- Enlaces de navegación -->
+    <div class="nav-links" id="navLinks">
+        <a href="#inicio">Inicio</a>
+        <a href="#infraestructura">Infraestructura</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+
+    <!-- Botón de Menú Hamburguesa para Móviles -->
+    <div class="hamburger-menu" id="hamburgerMenu" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+</nav>
 
     <section id="welcome" class="welcome-container">
     <div class="welcome-wrapper">
@@ -560,4 +568,10 @@ function resetFacilityTimer() {
 }
 </script>
 
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+    }
+</script>
 
