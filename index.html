@@ -547,47 +547,6 @@
 
 <script>
     let currentFacilitySlide = 0;
-const facilitySlides = document.querySelectorAll('.facility-slide');
-const facilityDots = document.querySelectorAll('.f-dot');
-
-function showFacilitySlide(index) {
-    facilitySlides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-    });
-    facilityDots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-    });
-    currentFacilitySlide = index;
-}
-
-function nextFacilitySlide() {
-    let nextIndex = (currentFacilitySlide + 1) % facilitySlides.length;
-    showFacilitySlide(nextIndex);
-}
-
-function setFacilitySlide(index) {
-    showFacilitySlide(index);
-    resetFacilityTimer();
-}
-
-// Rotación automática cada 5 segundos
-let facilityInterval = setInterval(nextFacilitySlide, 5000);
-
-function resetFacilityTimer() {
-    clearInterval(facilityInterval);
-    facilityInterval = setInterval(nextFacilitySlide, 5000);
-}
-</script>
-
-<script>
-    function toggleMenu() {
-        const navLinks = document.getElementById('navLinks');
-        navLinks.classList.toggle('active');
-    }
-</script>
-
-<script>
-    let currentFacilitySlide = 0;
     const facilitySlides = document.querySelectorAll('.facility-slide');
     const facilityDots = document.querySelectorAll('.f-dot');
 
@@ -628,6 +587,13 @@ function resetFacilityTimer() {
     function resetFacilityTimer() {
         clearInterval(facilityInterval);
         facilityInterval = setInterval(nextFacilitySlide, 5000);
+    }
+</script>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
     }
 </script>
 
