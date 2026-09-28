@@ -199,23 +199,32 @@
     <!-- Carrusel de imágenes de fondo -->
     <div class="facility-bg-carousel">
         <div class="facility-slide active" style="background-image: url('./LIT_facility.PNG');"></div>
-        <div class="facility-slide" style="background-image: url('./ELISA_324.jpg');"></div>
         <div class="facility-slide" style="background-image: url('./Citometro.jpg');"></div>
         <div class="facility-slide" style="background-image: url('./Bioplex.JPG');"></div>
         <div class="facility-slide" style="background-image: url('./ANELS.jpg');"></div>
+        <div class="facility-slide" style="background-image: url('./LIT_facility_2.jpg');"></div>
     </div>
 
-    <!-- Máscara con la degradación y difuminado -->
-    <div class="facility-mask"></div>
+    <!-- Máscara con degradado directo hacia el color de fondo #f7f7f7 -->
+    <div class="facility-overlay"></div>
 
     <div class="facility-container">
-        <!-- Espacio izquierdo reservado para ver las fotos -->
+        <!-- Espacio izquierdo con controles (Flechas + Puntos) -->
         <div class="image-space">
-            <!-- Indicadores opcionales sobre la imagen -->
-            <div class="facility-dots">
-                <span class="f-dot active" onclick="setFacilitySlide(0)"></span>
-                <span class="f-dot" onclick="setFacilitySlide(1)"></span>
-                <span class="f-dot" onclick="setFacilitySlide(2)"></span>
+            <div class="facility-controls">
+                <button class="f-arrow" onclick="prevFacilitySlide()" aria-label="Anterior">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                
+                <div class="facility-dots">
+                    <span class="f-dot active" onclick="setFacilitySlide(0)"></span>
+                    <span class="f-dot" onclick="setFacilitySlide(1)"></span>
+                    <span class="f-dot" onclick="setFacilitySlide(2)"></span>
+                </div>
+
+                <button class="f-arrow" onclick="nextFacilitySlideManual()" aria-label="Siguiente">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
         </div>
 
@@ -574,6 +583,51 @@ function resetFacilityTimer() {
     function toggleMenu() {
         const navLinks = document.getElementById('navLinks');
         navLinks.classList.toggle('active');
+    }
+</script>
+
+<script>
+    let currentFacilitySlide = 0;
+    const facilitySlides = document.querySelectorAll('.facility-slide');
+    const facilityDots = document.querySelectorAll('.f-dot');
+
+    function showFacilitySlide(index) {
+        facilitySlides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+        facilityDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        currentFacilitySlide = index;
+    }
+
+    function nextFacilitySlide() {
+        let nextIndex = (currentFacilitySlide + 1) % facilitySlides.length;
+        showFacilitySlide(nextIndex);
+    }
+
+    function nextFacilitySlideManual() {
+        nextFacilitySlide();
+        resetFacilityTimer();
+    }
+
+    function prevFacilitySlide() {
+        let prevIndex = (currentFacilitySlide - 1 + facilitySlides.length) % facilitySlides.length;
+        showFacilitySlide(prevIndex);
+        resetFacilityTimer();
+    }
+
+    function setFacilitySlide(index) {
+        showFacilitySlide(index);
+        resetFacilityTimer();
+    }
+
+    // Rotación automática cada 5 segundos
+    let facilityInterval = setInterval(nextFacilitySlide, 5000);
+
+    function resetFacilityTimer() {
+        clearInterval(facilityInterval);
+        facilityInterval = setInterval(nextFacilitySlide, 5000);
     }
 </script>
 
