@@ -169,7 +169,7 @@
             <div class="card-body">
                 <h5>Estudios de la producción de citocinas específicas</h5>
                 <p>Cuantificación y monitoreo de la producción de citocinas específicas mediante ELISpot</p>
-                <a href="mailto:rodolfo_chvz@outlook.com?subject=Consulta:%20Estudios%20de%20la%20producción%20de%20citocinas%20específicas&body=Estimado%20equipo%20del%20LIT,%0A%0AMe%20gustaría%20recibir%20más%20información%20sobre%20el%20servicio%20de%20Estudios%20de%20la%20producción%20de%20citocinas%20específicas.%0A%0AGracias." class="card-link">
+                <a href="#" onclick="enviarCorreo('ELISpot'); return false" class="card-link">
                     Consultar servicio <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
@@ -593,5 +593,19 @@
         const navLinks = document.getElementById('navLinks');
         navLinks.classList.toggle('active');
     }
+</script>
+
+<script>
+function enviarCorreo(nombreServicio) {
+    const emailDestino = "rodolfo_chvz@outlook.com"; // <--- Cambia por tu correo real
+    const asunto = encodeURIComponent("Consulta sobre servicio: " + nombreServicio);
+    const cuerpo = encodeURIComponent("Estimado equipo del LIT,\n\nMe gustaría recibir más información sobre el servicio de " + nombreServicio + ".\n\nQuedo atento a su respuesta.\n\nSaludos.");
+
+    // Intenta abrir el cliente predeterminado del sistema (mailto:)
+    const mailtoUrl = `mailto:${emailDestino}?subject=${asunto}&body=${cuerpo}`;
+    
+    // Ejecuta la apertura del correo
+    window.location.href = mailtoUrl;
+}
 </script>
 
